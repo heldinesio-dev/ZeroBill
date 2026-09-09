@@ -2,82 +2,107 @@
 
 ![ZeroBill](app/renderer/assets/sreenshots/logo.png)
 
-Aplicação desktop de gestão e faturação para pequenas empresas, construída com Electron e orientada para utilização local. O ZeroBill centraliza produtos, serviços, emissão de faturas, pagamentos, dados da empresa e consulta de vendas numa interface simples.
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+Aplicação desktop de gestão e faturação para pequenas empresas. O ZeroBill foi criado para substituir processos manuais por um fluxo local e simples de gestão de produtos, serviços, vendas, faturação e controlo operacional.
 
 ## Sobre o projeto
 
-O ZeroBill procura resolver uma necessidade prática de pequenas operações comerciais: manter os dados essenciais do negócio organizados e permitir registar vendas sem depender de um serviço remoto.
+Pequenos negócios nem sempre dispõem de ferramentas adequadas para organizar produtos, registar vendas e acompanhar pagamentos. Quando estes processos são feitos manualmente, torna-se mais difícil manter a informação consistente e consultar os resultados da operação.
 
-A aplicação foi desenvolvida para apoiar a gestão diária de produtos e serviços, a emissão de faturas e a consulta posterior dos resultados de vendas. A persistência é local e feita por computador, sem contas de utilizador ou sincronização cloud implementadas.
+O ZeroBill foi desenvolvido como uma solução prática para esse contexto. A aplicação reúne num único ambiente a gestão de produtos e serviços, a configuração dos dados da empresa, a emissão de faturas e a consulta das vendas. Os dados são mantidos localmente, sem depender de uma conta ou de um servidor remoto.
+
+## Problema e solução
+
+### Problema
+
+- Processos comerciais baseados em registos manuais.
+- Informação de produtos, clientes e vendas dispersa.
+- Dificuldade em acompanhar pagamentos, trocos e resultados por período.
+- Necessidade de uma ferramenta acessível para uma pequena operação.
+
+### Solução
+
+O ZeroBill digitaliza o fluxo essencial da operação: os itens são registados no catálogo, os produtos ativos podem ser adicionados a uma fatura, o pagamento é validado e as vendas ficam disponíveis para consulta posterior. A aplicação foi desenhada para funcionar localmente e manter o fluxo de utilização direto.
 
 ## Principais funcionalidades
 
-### Gestão
+### Produtos e empresa
 
-- Criação e edição de produtos e serviços.
-- Definição de preço, descrição e estado ativo/inativo.
-- Pesquisa e filtragem por nome, tipo e estado.
-- Configuração do perfil da empresa, incluindo nome, responsável, NIF, morada, telefones, email e descrição.
+- Criar, editar, ativar, desativar e remover produtos ou serviços.
+- Definir nome, tipo, preço e descrição.
+- Pesquisar e filtrar itens por nome, tipo e estado.
+- Registar nome, responsável, NIF, morada, telefones, email e descrição da empresa.
 
 ### Faturação
 
-- Criação de faturas a partir dos produtos e serviços ativos.
-- Identificação do cliente e telefone opcional.
-- Alteração das quantidades dos itens.
-- Cálculo de subtotal, total e troco.
-- Registo do valor recebido e do método de pagamento.
-- Validação de pagamentos insuficientes e de valores monetários com vírgula decimal.
+- Criar faturas com produtos e serviços ativos.
+- Registar cliente e telefone opcional.
+- Ajustar quantidades e remover itens.
+- Calcular subtotal, total e troco.
+- Registar valor recebido e método de pagamento.
+- Validar pagamentos insuficientes e valores com vírgula decimal.
 
 ### Gestão financeira
 
-- Consulta de vendas por período diário, semanal, mensal e anual.
-- Pesquisa de vendas por cliente, número de fatura e data.
-- Resumo do total faturado e do número de faturas.
-- Identificação do item mais vendido.
-- Gráfico de quantidades vendidas e total faturado.
-- Consulta dos detalhes de cada fatura.
+- Consultar vendas por dia, semana, mês e ano.
+- Pesquisar por cliente, número de fatura ou data.
+- Consultar total faturado, número de faturas e item mais vendido.
+- Visualizar um gráfico de quantidades vendidas e total faturado.
+- Abrir os detalhes de cada fatura.
+- Limpar os dados locais através de uma ação protegida por dupla confirmação.
 
-## Validação em Ambiente Real
+## Aplicação em cenário real
 
-Em **05/06/2026**, durante uma Feira de Empreendedorismo, o ZeroBill foi utilizado e testado num cenário real pela empresa **S.O.S — Sabores Orientes do Sul**, da área de restauração.
+O ZeroBill foi utilizado durante uma competição empresarial, num contexto em que eu estava na liderança da empresa. Antes da adoção do sistema, vários processos da operação eram realizados manualmente.
 
-Durante a experiência, o sistema auxiliou a gestão da operação, da contabilidade e da permanência dos dados dos clientes. No resultado do evento, a empresa conquistou o primeiro lugar. Este registo demonstra uma utilização prática do sistema estabelecendo uma relação causal entre o uso do ZeroBill e a classificação obtida.
+A solução própria permitiu apoiar a gestão da empresa e digitalizar parte desses processos. As empresas concorrentes trabalhavam essencialmente de forma manual e não utilizavam sistemas semelhantes. Nesse contexto, a inovação tecnológica e a adoção de uma ferramenta própria de gestão constituíram alguns dos diferenciais considerados na competição.
 
-![ZeroBill utilizado em ambiente real](app/renderer/assets/sreenshots/dasboard-ambiente-real.jpeg)
+A empresa terminou a competição em **1.º lugar**. Este resultado é apresentado como o desfecho da competição, sem atribuir causalidade exclusiva ao ZeroBill.
 
-## Screenshots
+![Utilização do ZeroBill em ambiente real](app/renderer/assets/sreenshots/dasboard-ambiente-real.jpeg)
+
+![Resultado da competição](app/renderer/assets/sreenshots/vencedores.jpeg)
+
+## Demonstração
 
 ### Dashboard
 
 ![Dashboard do ZeroBill](app/renderer/assets/sreenshots/dashboard.png)
 
-### Gestão financeira
-
 ### Faturação
 
-![Gestão financeira do ZeroBill](app/renderer/assets/sreenshots/faturacao.png)
+![Ecrã de faturação do ZeroBill](app/renderer/assets/sreenshots/faturacao.png)
+
+### Gestão financeira
+
+![Gestão financeira do ZeroBill](app/renderer/assets/sreenshots/managament.jpeg)
+
+> Os nomes atuais da pasta e de alguns ficheiros de imagem (`sreenshots`, `dasboard` e `managament`) são mantidos para corresponder à estrutura existente do repositório.
 
 ## Tecnologias
 
-- Electron `28.3.3`.
-- JavaScript.
-- HTML e CSS.
-- `electron-store` para persistência local.
-- Chart.js, incluído localmente em `app/renderer/assets/libs/chart.min.js`.
-- `html2canvas` e jsPDF, incluídos localmente no renderer.
-- `electron-updater` para o mecanismo de atualização.
-- `electron-builder` para empacotamento e distribuição.
+| Tecnologia         | Utilização                                             |
+| ------------------ | ------------------------------------------------------ |
+| Electron `28.3.3`  | Aplicação desktop e integração com o sistema operativo |
+| JavaScript         | Lógica do processo principal e das interfaces          |
+| HTML e CSS         | Estrutura e apresentação das telas                     |
+| `electron-store`   | Persistência local de produtos, empresa e faturas      |
+| Chart.js           | Gráfico de vendas, incluído localmente no renderer     |
+| `electron-log`     | Registo de eventos do processo Electron                |
+| `electron-updater` | Verificação e instalação de atualizações               |
+| `electron-builder` | Empacotamento para macOS e Windows                     |
+
+O projeto também inclui cópias locais de `html2canvas` e jsPDF no renderer. Atualmente, não são dependências npm diretas do projeto.
 
 ## Arquitetura
 
-O projeto utiliza a arquitetura padrão de uma aplicação Electron:
+- **Main process:** [app/main/main.js](app/main/main.js) cria a janela Electron, gere o armazenamento local, valida dados recebidos por IPC e controla atualizações.
+- **Preload:** [app/main/preload.js](app/main/preload.js) expõe uma API limitada ao renderer através de `contextBridge`.
+- **Renderer:** cada área funcional tem a sua própria página, folha de estilos e lógica JavaScript.
+- **Persistência:** `electron-store` guarda os dados no diretório local de utilizador definido pelo Electron.
 
-- **Main process:** cria a janela, gere o armazenamento local, valida os dados e expõe os handlers IPC.
-- **Preload:** disponibiliza uma API limitada através de `contextBridge`, com `nodeIntegration` desativado no renderer.
-- **Renderer:** contém as páginas e a lógica de interface do dashboard, faturação e gestão financeira.
-- **Persistência:** `electron-store` guarda produtos, dados da empresa e faturas localmente.
+O renderer é executado com `contextIsolation` ativo e `nodeIntegration` desativado. A comunicação entre os processos ocorre através dos handlers IPC expostos pelo preload.
 
 ## Estrutura do projeto
 
@@ -97,23 +122,29 @@ ZeroBill/
 │       ├── invoice/
 │       └── management/
 ├── LICENSE
+├── README.md
 ├── package.json
-├── package-lock.json
-└── README.md
+└── package-lock.json
 ```
 
-## Requisitos
+## Requisitos e estado de validação
 
 - Node.js e npm.
-- Um sistema operativo suportado pelo Electron.
+- Um sistema operativo compatível com a versão de Electron instalada.
 
-### Estado de validação
+### Testado
 
-- **macOS:** aplicação executada e build macOS gerado no ambiente de desenvolvimento, num Mac Intel com macOS 12.7.6.
-- **Windows:** a configuração NSIS e o empacotamento Windows x64 foram preparados, mas a aplicação e o instalador ainda não foram testados num Windows real.
-- **Linux:** não foi testado nem existe um target Linux configurado no `package.json`.
+- Aplicação executada em macOS 12.7.6 num Mac Intel.
+- Build macOS gerado com targets DMG e ZIP.
+- Sintaxe JavaScript validada nos módulos da aplicação.
 
-A versão exata de Node.js não está fixada pelo projeto. Recomenda-se utilizar uma versão LTS compatível com as versões de Electron e npm instaladas localmente.
+### Ainda não confirmado
+
+- Execução e instalação num Windows real.
+- Ciclo completo de atualização através de uma release do GitHub.
+- Execução e distribuição em Linux.
+
+A versão exata de Node.js não está fixada no `package.json`. Recomenda-se uma versão LTS compatível com Electron `28.3.3` e com o npm instalado no ambiente.
 
 ## Instalação
 
@@ -129,59 +160,80 @@ npm install
 npm start
 ```
 
-O script `npm run dev` existe como alias para o mesmo comando Electron:
+Para desenvolvimento, o projeto também disponibiliza:
 
 ```bash
 npm run dev
 ```
 
-## Build
+Os dois scripts iniciam a aplicação Electron localmente.
 
-O script de build disponível é:
+## Build e produção
+
+Para gerar os artefactos da plataforma configurada no ambiente atual:
 
 ```bash
 npm run build
 ```
 
-O `electron-builder` está configurado para gerar:
+O `electron-builder` está configurado para:
 
-- macOS: DMG e ZIP.
-- Windows: instalador NSIS `.exe`.
+- macOS: gerar DMG e ZIP com o ícone `.icns` configurado;
+- Windows: gerar instalador NSIS `.exe` com o ícone `.ico` configurado.
 
-O target Windows x64 pode ser solicitado a partir de um ambiente compatível com o electron-builder, mas o instalador deve ser testado numa máquina Windows antes de ser apresentado como release verificada. O projeto não define atualmente um target Linux nem ARM64.
+O projeto não define atualmente um target Linux nem ARM64. O build Windows está configurado, mas ainda precisa de ser instalado e executado num Windows real antes de ser considerado validado.
 
-O script `npm run publish` também existe para publicação Windows/macOS através do provider GitHub. A publicação requer releases e credenciais adequadas; não é necessária para executar o projeto localmente.
+Também existe o script:
+
+```bash
+npm run publish
+```
+
+Este comando tenta publicar builds macOS e Windows através do provider GitHub configurado no `package.json`. Requer uma release e credenciais de publicação adequadas.
 
 ## Dados e privacidade
 
-Os produtos, as faturas e os dados da empresa são armazenados localmente por `electron-store`, no diretório de dados do utilizador definido pelo Electron para o sistema operativo em uso.
+Produtos, faturas e dados da empresa são armazenados localmente por `electron-store`, no diretório de dados do utilizador definido pelo Electron.
 
-O projeto não implementa, atualmente:
-
-- contas ou autenticação;
-- sincronização cloud;
-- servidor remoto;
-- base de dados partilhada entre dispositivos.
-
-Os dados locais devem ser tratados como informação do utilizador e incluídos numa estratégia própria de cópia de segurança.
+O projeto não implementa contas, autenticação, sincronização cloud ou uma base de dados partilhada entre dispositivos. Os dados locais devem ser incluídos numa estratégia própria de cópia de segurança.
 
 ## Segurança
 
-O renderer utiliza `contextIsolation: true` e `nodeIntegration: false`. A comunicação com o processo principal é exposta através de uma API limitada no preload, e os dados recebidos por IPC são validados antes de serem persistidos.
+As medidas atualmente implementadas incluem:
 
-Não são necessárias API keys ou credenciais externas para instalar e executar a aplicação localmente. O auto-update depende de releases configuradas no GitHub quando essa funcionalidade for utilizada.
+- `contextIsolation: true`;
+- `nodeIntegration: false`;
+- API de preload limitada através de `contextBridge`;
+- validação dos dados recebidos por IPC antes da persistência;
+- utilização de `path.join` para construir caminhos internos da aplicação.
 
-## Limitações conhecidas
+Não são necessárias API keys ou credenciais externas para executar a aplicação localmente. O mecanismo de atualização depende de releases configuradas no GitHub.
 
-- Não existem testes automatizados no repositório.
-- A compatibilidade Windows ainda não foi verificada através da execução numa máquina Windows real.
-- O auto-update e a publicação de releases ainda precisam de ser testados num ciclo real de atualização.
-- Os instaladores publicados não estão assinados no ambiente atualmente utilizado.
+## Estado atual e limitações
+
+O ZeroBill encontra-se numa versão utilizável em evolução, adequada para demonstrar um fluxo local de gestão e faturação. As principais limitações conhecidas são:
+
+- não existem testes automatizados no repositório;
+- a compatibilidade Windows ainda não foi verificada numa máquina Windows real;
+- o auto-update ainda não foi validado num ciclo completo de release;
+- os instaladores não estão assinados no ambiente de desenvolvimento atual;
+- não existe target Linux configurado.
+
+## Contribuição
+
+Contribuições são bem-vindas através de issues e pull requests. Antes de propor uma alteração:
+
+1. Descreve o problema ou melhoria de forma objetiva.
+2. Confirma que a alteração é compatível com a arquitetura Electron existente.
+3. Testa localmente os fluxos afetados.
+4. Inclui no pull request o contexto e a forma de validação.
 
 ## Autor
 
 **Heldinêsio G. Cabaça**
 
+O repositório está associado à conta GitHub `heldinesio-dev`.
+
 ## Licença
 
-Este projeto está distribuído sob a licença **MIT**. Consulte [LICENSE](LICENSE).
+Este projeto está distribuído sob a licença **MIT**. Consulta o ficheiro [LICENSE](LICENSE).
