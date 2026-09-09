@@ -47,8 +47,6 @@ Durante a experiência, o sistema auxiliou a gestão da operação, da contabili
 
 ![ZeroBill utilizado em ambiente real](app/renderer/assets/sreenshots/dasboard-ambiente-real.jpeg)
 
-![Equipa vencedora](app/renderer/assets/sreenshots/vencedores.jpeg)
-
 ## Screenshots
 
 ### Dashboard
@@ -179,12 +177,6 @@ Não são necessárias API keys ou credenciais externas para instalar e executar
 - A compatibilidade Windows ainda não foi verificada através da execução numa máquina Windows real.
 - O auto-update e a publicação de releases ainda precisam de ser testados num ciclo real de atualização.
 - Os instaladores publicados não estão assinados no ambiente atualmente utilizado.
-- Não existe target Linux configurado.
-- Não existe screenshot do ecrã de faturação no repositório.
-
-## Roadmap
-
-Não foi incluído um roadmap especulativo. Funcionalidades futuras só devem ser adicionadas aqui quando forem definidas e documentadas no projeto.
 
 ## Autor
 
@@ -193,9 +185,3 @@ Não foi incluído um roadmap especulativo. Funcionalidades futuras só devem se
 ## Licença
 
 Este projeto está distribuído sob a licença **MIT**. Consulte [LICENSE](LICENSE).
-
-## Observações para o Autor
-
-- A pasta de imagens existente chama-se `sreenshots`; o nome pode ser corrigido futuramente, mas os caminhos acima refletem a estrutura atual do repositório.
-- Antes de publicar fotografias com pessoas, clientes ou dados visíveis, confirme que existe autorização para divulgação pública.
-- A imagem de faturação deve ser adicionada apenas quando existir um screenshot real e autorizado.
