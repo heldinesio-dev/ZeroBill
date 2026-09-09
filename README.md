@@ -1,6 +1,8 @@
 # ZeroBill
 
-![ZeroBill](app/renderer/assets/screenshots/logo.png)
+<p align="center">
+	<img src="app/renderer/assets/screenshots/logo.png" alt="ZeroBill" />
+</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -60,23 +62,33 @@ A solução própria permitiu apoiar a gestão da empresa e digitalizar parte de
 
 A empresa terminou a competição em **1.º lugar**. Este resultado é apresentado como o desfecho da competição, sem atribuir causalidade exclusiva ao ZeroBill.
 
-![Utilização do ZeroBill em ambiente real](app/renderer/assets/screenshots/dashboard-ambiente-real.jpeg)
+<p align="center">
+	<img src="app/renderer/assets/screenshots/dashboard-ambiente-real.jpeg" alt="Utilização do ZeroBill em ambiente real" />
+</p>
 
-![Resultado da competição](app/renderer/assets/screenshots/vencedores.jpeg)
+<p align="center">
+	<img src="app/renderer/assets/screenshots/vencedores.jpeg" alt="Resultado da competição" />
+</p>
 
 ## Demonstração
 
 ### Dashboard
 
-![Dashboard do ZeroBill](app/renderer/assets/screenshots/dashboard.png)
+<p align="center">
+	<img src="app/renderer/assets/screenshots/dashboard.png" alt="Dashboard do ZeroBill" />
+</p>
 
 ### Faturação
 
-![Ecrã de faturação do ZeroBill](app/renderer/assets/screenshots/faturacao.png)
+<p align="center">
+	<img src="app/renderer/assets/screenshots/faturacao.png" alt="Ecrã de faturação do ZeroBill" />
+</p>
 
 ### Gestão financeira
 
-![Gestão financeira do ZeroBill](app/renderer/assets/screenshots/management.jpeg)
+<p align="center">
+	<img src="app/renderer/assets/screenshots/management.jpeg" alt="Gestão financeira do ZeroBill" />
+</p>
 
 > Os nomes atuais da pasta e de alguns ficheiros de imagem (`sreenshots`, `dasboard` e `managament`) são mantidos para corresponder à estrutura existente do repositório.
 
