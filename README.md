@@ -90,8 +90,6 @@ A empresa terminou a competição em **1.º lugar**. Este resultado é apresenta
 	<img src="app/renderer/assets/screenshots/management.jpeg" alt="Gestão financeira do ZeroBill" />
 </p>
 
-> Os nomes atuais da pasta e de alguns ficheiros de imagem (`sreenshots`, `dasboard` e `managament`) são mantidos para corresponder à estrutura existente do repositório.
-
 ## Tecnologias
 
 | Tecnologia         | Utilização                                             |
