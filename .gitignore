@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.log
+*.exe
+*.dmg
+*.zip
+.DS_Store
+Thumbs.db
+*.db
+app/data/*.db
+app/data/*.sql
+app/Documentacao/
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZeroBill - Nova Fatura</title>
+    <link rel="stylesheet" href="../assets/themeCSS/themeCSS.css" />
+    <link rel="stylesheet" href="./invoice.css" />
+    <script src="../assets/libs/html2canvas.min.js"></script>
+    <script src="../assets/libs/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <button id="btn-back" class="btn-secondary">← Voltar</button>
+      <h1>Nova Fatura</h1>
+      <div class="invoice-info">
+        <span id="invoice-number"
+          >Fatura Nº <span id="invoice-num">001</span></span
+        >
+        <span id="invoice-date"></span>
+      </div>
+    </header>
+
+    <main class="invoice-main">
+      <!-- Coluna esquerda: Produtos disponíveis -->
+      <section class="products-section">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="products-search"
+            placeholder="Pesquisar produtos e serviços..."
+          />
+        </div>
+        <div class="products-list" id="available-products">
+          <!-- Produtos ativos carregados via JS -->
+        </div>
+      </section>
+
+      <!-- Coluna direita: Resumo da fatura -->
+      <section class="invoice-section">
+        <div class="client-info">
+          <label>Cliente</label>
+          <input
+            type="text"
+            id="client-name"
+            placeholder="Nome do cliente (obrigatório)"
+            required
+          />
+          <label for="client-phone">Telefone</label>
+          <input
+            type="tel"
+            id="client-phone"
+            placeholder="Telefone do cliente (opcional)"
+          />
+        </div>
+        <div class="invoice-items" id="invoice-items">
+          <p class="empty-message">
+            Adicione itens clicando nos produtos à esquerda
+          </p>
+        </div>
+
+        <div class="totals">
+          <div class="total-line">
+            <span>Subtotal</span>
+            <span id="subtotal">0,00 Kz</span>
+          </div>
+          <div class="total-line bold">
+            <span>Total</span>
+            <span id="total">0,00 Kz</span>
+          </div>
+        </div>
+
+        <div class="payment">
+          <label>Valor recebido</label>
+          <input
+            type="text"
+            inputmode="decimal"
+            id="payment-received"
+            placeholder="0,00"
+          />
+
+          <label style="margin-top: 1rem">Método de pagamento</label>
+          <select id="payment-method" class="payment-select">
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Transferência">Transferência</option>
+            <option value="Express">Express</option>
+          </select>
+
+          <div class="change">
+            <span>Troco</span>
+            <span id="change">0,00 Kz</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn-secondary" id="cancel-invoice">Cancelar</button>
+          <button class="btn-primary" id="finalize-invoice">
+            Finalizar Fatura
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./invoice.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+/* assets/theme/theme.css – Tema CLARO suave com tom azulado */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: linear-gradient(
+    135deg,
+    hsl(210, 40%, 95%) 0%,
+    /* azul-cinza claro */ hsl(210, 30%, 92%) 50%,
+    hsl(210, 35%, 98%) 100%
+  ); /* quase branco com toque azul */
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+  --hue-primary: 214; /* Azul principal */
+  --hue-success: 152; /* Verde */
+  --hue-inactive: 38; /* Inativo */
+
+  /* Fundos principais – tons azulados suaves */
+  --bg-primary: transparent; /* body usa gradient acima */
+  --bg-secondary: hsl(210, 40%, 98%); /* Cards e header – azul muito claro */
+  --bg-tertiary: hsl(210, 50%, 94%); /* Hover – um pouco mais saturado */
+
+  /* Acentos */
+  --accent-primary: hsl(var(--hue-primary), 75%, 55%);
+  --accent-primary-hover: hsl(var(--hue-primary), 75%, 50%);
+  --accent-primary-light: hsl(var(--hue-primary), 80%, 94%);
+
+  --accent-success: hsl(var(--hue-success), 70%, 45%);
+  --accent-inactive: hsl(var(--hue-inactive), 60%, 65%);
+
+  /* Texto – contraste forte em fundo claro */
+  --text-primary: hsl(214, 35%, 12%);
+  --text-secondary: hsl(214, 20%, 30%);
+  --text-muted: hsl(214, 15%, 50%);
+
+  /* Bordas */
+  --border-color: hsl(210, 30%, 86%);
+  --border-color-focus: var(--accent-primary);
+
+  /* Sombras – mais suaves e azuladas */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  /* Radius e transições */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+
+  /* Moeda */
+  --currency: "Kz";
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(210, 30%, 80%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(210, 30%, 70%);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: var(--bg-secondary);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-primary-hover);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-primary-light);
+  color: var(--accent-primary);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}

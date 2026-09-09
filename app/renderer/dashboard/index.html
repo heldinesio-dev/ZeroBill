@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZeroBill - Sistema de Faturação</title>
+
+    <link rel="stylesheet" href="../assets/themeCSS/themeCSS.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">
+          <img src="../assets/logos/zerobillLogo.svg" alt="ZeroBill" />
+          <h1>ZeroBill</h1>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <input
+          type="text"
+          id="global-search"
+          placeholder="Pesquisar produtos e serviços..."
+          class="search-input"
+        />
+
+        <select id="filter-type" class="filter-select">
+          <option value="all">Todos os tipos</option>
+          <option value="product">Produtos</option>
+          <option value="service">Serviços</option>
+        </select>
+
+        <select id="filter-status" class="filter-select">
+          <option value="all">Todos os estados</option>
+          <option value="active">Ativos</option>
+          <option value="inactive">Inativos</option>
+        </select>
+      </div>
+
+      <div class="header-right">
+        <button id="btn-company" class="btn-secondary">Empresa</button>
+        <button id="btn-management" class="btn-secondary">Gestão</button>
+        <button id="btn-new-invoice" class="btn-primary">+ Nova Fatura</button>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="summary-cards">
+        <div class="summary-card">
+          <div class="icon">📦</div>
+          <div class="info">
+            <span class="label">Total</span>
+            <span class="value" id="total-items">0</span>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="icon">✅</div>
+          <div class="info">
+            <span class="label">Ativos</span>
+            <span class="value" id="active-items">0</span>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="icon">💸</div>
+          <div class="info">
+            <span class="label">Valor Ativo</span>
+            <span class="value" id="active-value">0,00</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-grid" id="products-grid">
+        <!-- Product cards serão inseridos aqui via JavaScript -->
+      </section>
+    </main>
+
+    <script src="./index.js" type="module"></script>
+
+    <!-- Modal Perfil da Empresa -->
+    <div class="modal-overlay" id="company-modal-overlay">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2>Perfil da Empresa</h2>
+        </div>
+        <div class="modal-body">
+          <form id="company-form">
+            <label>Nome da Empresa <span class="required">*</span></label>
+            <input
+              type="text"
+              id="company-name"
+              placeholder="Nome da Empresa"
+              required
+            />
+
+            <label>Nome do Responsável <span class="required">*</span></label>
+            <input
+              type="text"
+              id="company-responsible"
+              placeholder="Ex: João Silva"
+              required
+            />
+
+            <label>NIF / NIPC</label>
+            <input type="text" id="company-nif" placeholder="Ex: 123456789" />
+
+            <label>Morada</label>
+            <input
+              type="text"
+              id="company-address"
+              placeholder="Rua, número, código postal, cidade"
+            />
+
+            <label>Telefone Principal</label>
+            <input
+              type="text"
+              id="company-phone"
+              placeholder="+351 912 345 678"
+            />
+
+            <label>Celular Secundário (opcional)</label>
+            <input
+              type="text"
+              id="company-phone-secondary"
+              placeholder="+351 923 456 789"
+            />
+
+            <label>Email</label>
+            <input
+              type="email"
+              id="company-email"
+              placeholder="contacto@empresa.pt"
+            />
+
+            <label>Pequena Descrição da Empresa (opcional)</label>
+            <textarea
+              id="company-description"
+              rows="4"
+              placeholder="Breve descrição da sua empresa..."
+            ></textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="company-cancel">
+            Cancelar
+          </button>
+          <button type="button" class="btn-primary" id="company-save">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Novo/Editar Produto/Serviço -->
+    <div class="modal-overlay" id="product-modal-overlay">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 id="product-modal-title">Novo Produto/Serviço</h2>
+        </div>
+
+        <div class="modal-body">
+          <!-- Toggle Tipo Produto/Serviço -->
+          <div class="type-toggle">
+            <button class="type-btn active" data-type="product">
+              Produto📦
+            </button>
+            <button class="type-btn" data-type="service">Serviço🔧</button>
+          </div>
+
+          <!-- Nome -->
+          <label for="product-name">Nome</label>
+          <input
+            type="text"
+            id="product-name"
+            placeholder="Nome do produto/serviço"
+            required
+          />
+
+          <!-- Preço -->
+          <label for="product-price">Preço</label>
+          <input
+            type="text"
+            inputmode="decimal"
+            id="product-price"
+            placeholder="0,00"
+            required
+          />
+
+          <!-- Descrição -->
+          <label for="product-description">Descrição (opcional)</label>
+          <textarea
+            id="product-description"
+            rows="4"
+            placeholder="Descrição detalhada..."
+          ></textarea>
+
+          <!-- Toggle Status -->
+          <div class="status-toggle">
+            <label class="switch">
+              <input type="checkbox" id="product-status" checked />
+              <span class="slider"></span>
+            </label>
+            <span id="status-text">Ativo e visível</span>
+          </div>
+        </div>
+
+        <!-- Adiciona este footer fixo -->
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="product-cancel">
+            Cancelar
+          </button>
+          <button type="button" class="btn-primary" id="product-save">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão flutuante + Novo (opcional, mas bonito) -->
+    <button class="fab" id="btn-new-product" title="Novo Produto/Serviço">
+      +
+    </button>
+  </body>
+</html>

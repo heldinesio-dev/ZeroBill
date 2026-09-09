@@ -1,0 +1,64 @@
+{
+  "name": "zerobill",
+  "version": "1.0.0",
+  "description": "ZeroBill - Offline-first billing app",
+  "main": "app/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder",
+    "publish": "electron-builder --win --mac -p always"
+  },
+  "keywords": [
+    "billing",
+    "offline",
+    "electron"
+  ],
+  "author": "Heldinêsio G. Cabaça",
+  "license": "MIT",
+  "dependencies": {
+    "electron-log": "^5.4.3",
+    "electron-store": "^8.2.0",
+    "electron-updater": "^6.3.9"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.king.zerobill",
+    "productName": "ZeroBill",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "app/**/*"
+    ],
+    "asar": true,
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Dymis-X",
+        "repo": "zerobill"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "app/renderer/assets/logos/appLogo.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "app/renderer/assets/logos/icon.icns"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ZeroBill"
+    }
+  }
+}

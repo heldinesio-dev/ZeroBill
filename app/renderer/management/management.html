@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZeroBill - Gestão Financeira</title>
+    <link rel="stylesheet" href="../assets/themeCSS/themeCSS.css" />
+    <link rel="stylesheet" href="./management.css" />
+    <script src="../assets/libs/chart.min.js"></script>
+  </head>
+  <body>
+    <!-- Header fixo -->
+    <header class="header">
+      <button id="btn-back" class="btn-secondary">← Voltar</button>
+
+      <div class="header-center">
+        <h1>Gestão Financeira</h1>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="management-search"
+            placeholder="Pesquisar por cliente, fatura nº, data..."
+          />
+        </div>
+      </div>
+
+      <div class="period-selector">
+        <button class="period-btn active" data-period="daily">Diário</button>
+        <button class="period-btn" data-period="weekly">Semanal</button>
+        <button class="period-btn" data-period="monthly">Mensal</button>
+        <button class="period-btn" data-period="yearly">Anual</button>
+      </div>
+    </header>
+
+    <main class="management-main">
+      <!-- Resumo sempre no topo -->
+      <section class="summary">
+        <div class="summary-card">
+          <span class="label">Total Faturado</span>
+          <span class="value" id="total-sales">0,00 Kz</span>
+        </div>
+        <div class="summary-card">
+          <span class="label">Nº de Faturas</span>
+          <span class="value" id="invoice-count">0</span>
+        </div>
+        <div class="summary-card">
+          <span class="label">Produto Mais Vendido</span>
+          <span class="value" id="top-product">-</span>
+        </div>
+      </section>
+
+      <!-- Tabela principal – conteúdo central -->
+      <section class="sales-table">
+        <h2>Vendas do Período</h2>
+        <table id="sales-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Fatura Nº</th>
+              <th>Cliente</th>
+              <th>Itens</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Preenchido via JS -->
+          </tbody>
+        </table>
+      </section>
+
+      <section class="chart-section">
+        <h2>Comparação de Vendas</h2>
+        <div class="chart-container">
+          <canvas id="sales-chart"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <!-- Ações no fundo (reset) -->
+    <section class="actions">
+      <button id="reset-data" class="btn-danger">Limpar Todos os Dados</button>
+    </section>
+
+    <!-- Modal (permanece no final) -->
+    <div class="modal-overlay" id="invoice-detail-overlay">
+      <div class="modal-card">
+        <header class="modal-header">
+          <h2>Fatura <span id="detail-invoice-num"></span></h2>
+          <button id="detail-close" class="btn-secondary">✕</button>
+        </header>
+
+        <section class="modal-meta">
+          <div><strong>Cliente:</strong> <span id="detail-client"></span></div>
+          <div><strong>Data:</strong> <span id="detail-datetime"></span></div>
+          <div><strong>Total:</strong> <span id="detail-total"></span></div>
+          <div><strong>Pago:</strong> <span id="detail-payment"></span></div>
+          <div><strong>Troco:</strong> <span id="detail-change"></span></div>
+        </section>
+
+        <section class="modal-items">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Qtd</th>
+                <th>Preço</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="detail-items">
+              <!-- preenchido via JS -->
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+
+    <script src="./management.js" type="module"></script>
+  </body>
+</html>

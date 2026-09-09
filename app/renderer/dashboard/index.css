@@ -1,0 +1,895 @@
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background: hsl(210, 40%, 98%);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Barra de pesquisa */
+.header-center {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 2rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-normal);
+}
+
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar input:focus {
+  border-color: var(--border-color-focus);
+  box-shadow: 0 0 0 4px var(--accent-primary-light);
+}
+
+/* Botões header */
+.header-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+}
+
+/* Summary cards */
+.summary-cards {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem 2rem 1rem;
+  flex-wrap: wrap;
+}
+
+.summary-card {
+  flex: 1;
+  min-width: 220px;
+  background: hsl(0, 0%, 100%);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-normal);
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  background: hsl(210, 50%, 97%);
+}
+
+.summary-card .icon {
+  font-size: 2.5rem;
+  opacity: 0.9;
+}
+
+.summary-card .info .label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-card .info .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+
+/* Valor Ativo com moeda */
+#active-value::after {
+  content: " " var(--currency);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-left: 0.25rem;
+}
+
+/* Grid de produtos */
+.products-grid {
+  padding: 0 2rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card de produto/serviço */
+.product-card {
+  background: hsl(0, 0%, 100%);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-normal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  background: hsl(210, 50%, 97%);
+  border-color: hsl(210, 50%, 88%);
+}
+
+.product-card-header {
+  padding: 1.25rem 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product-card-type {
+  font-size: 1.75rem;
+}
+
+.product-card-status {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-card-status.active {
+  background-color: hsl(var(--hue-success), 70%, 90%);
+  color: var(--accent-success);
+}
+
+.product-card-status.inactive {
+  background-color: hsl(var(--hue-inactive), 50%, 90%);
+  color: var(--accent-inactive);
+}
+
+.product-card-body {
+  padding: 1rem 1.5rem;
+  flex: 1;
+}
+
+.product-card-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.product-card-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.product-card-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.product-card-price::after {
+  content: " " var(--currency);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-left: 0.25rem;
+}
+
+/* Ações no hover */
+.product-card-actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.product-card:hover .product-card-actions {
+  opacity: 1;
+}
+
+.product-card-actions button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition-fast);
+}
+
+.product-card-actions button:hover {
+  background-color: var(--accent-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.product-card-actions .delete-btn:hover {
+  background-color: #ef4444;
+}
+
+/* Main */
+main.dashboard {
+  flex: 1;
+}
+
+/* Modal genérico */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  background: var(--bg-secondary);
+  width: 90%;
+  max-width: 500px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-header {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-body label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.modal-body input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-normal);
+}
+
+.modal-body input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-light);
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+  background: hsl(210, 40%, 98%);
+}
+
+/* Toggle Tipo Produto/Serviço */
+.type-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.type-btn.active {
+  background-color: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+/* Toggle Status (switch) */
+.status-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent-inactive);
+  transition: var(--transition-normal);
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: var(--transition-normal);
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-success);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+#status-text {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Textarea */
+#product-description {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  resize: vertical;
+  font-family: inherit;
+}
+
+#product-description:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-light);
+}
+
+/* Botão flutuante + Novo */
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  z-index: 900;
+  transition: var(--transition-normal);
+}
+
+.fab:hover {
+  background-color: var(--accent-primary-hover);
+  transform: scale(1.1);
+}
+/* Card de produto/serviço – design ORIGINAL restaurado */
+.product-card {
+  background: hsl(0, 0%, 100%);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-normal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  background: hsl(210, 50%, 97%);
+  border-color: hsl(210, 50%, 88%);
+}
+
+.product-card-header {
+  padding: 1.25rem 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product-card-type {
+  font-size: 1.75rem;
+}
+
+.product-card-status {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-card-status.active {
+  background-color: hsl(var(--hue-success), 70%, 90%);
+  color: var(--accent-success);
+}
+
+.product-card-status.inactive {
+  background-color: hsl(var(--hue-inactive), 50%, 90%);
+  color: var(--accent-inactive);
+}
+
+.product-card-body {
+  padding: 1rem 1.5rem;
+  flex: 1;
+}
+
+.product-card-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.product-card-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* Preço – grande, escuro, dentro do card, sem borda nem fundo extra */
+.product-card-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 0 1.5rem 1.5rem 1.5rem; /* espaço em baixo para não colar no fundo */
+  text-align: right;
+}
+
+/* Ações no hover – posição absoluta, aparece só ao passar o mouse */
+.product-card-actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.product-card:hover .product-card-actions {
+  opacity: 1;
+}
+
+.product-card-actions button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition-fast);
+}
+
+.product-card-actions button:hover {
+  background-color: var(--accent-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.product-card-actions .delete-btn:hover {
+  background-color: #ef4444;
+}
+
+.filter-select {
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  min-width: 180px;
+}
+
+.filter-select:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+}
+/* Container horizontal: pesquisa + filtros na mesma linha */
+.search-and-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* espaço bom entre elementos */
+  width: 100%;
+  max-width: 800px; /* aumenta um pouco se quiseres mais espaço */
+  flex-wrap: wrap; /* quebra linha em telas muito pequenas */
+}
+
+/* Barra de pesquisa ocupa o espaço principal */
+.search-input {
+  flex: 1 1 350px; /* cresce, mas tem tamanho mínimo */
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 1rem;
+  min-width: 300px;
+}
+
+.search-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px var(--accent-primary-light);
+}
+
+/* Selects de filtro - compactos e elegantes */
+.filter-select {
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  min-width: 160px; /* não ficam pequenos demais */
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-primary-light);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: hsl(210, 40%, 98%);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem; /* espaço bom entre as 3 colunas */
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  min-height: 70px;
+}
+
+.header-left {
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo img {
+  height: 42px;
+  width: auto;
+}
+
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0;
+}
+
+/* Parte central: pesquisa + filtros na mesma linha */
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* espaço respirável entre pesquisa e filtros */
+  flex: 1;
+  max-width: 800px; /* controla o tamanho máximo */
+}
+
+.search-input {
+  flex: 1;
+  min-width: 320px;
+  padding: 0.8rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.search-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px var(--accent-primary-light);
+  outline: none;
+}
+
+.filter-select {
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  min-width: 160px;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-light);
+}
+
+/* Direita: botões com espaçamento natural */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.btn-secondary,
+.btn-primary {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.required {
+  color: #ef4444;
+  font-size: 0.9rem;
+}
+
+/* === MODAL PERFIL DA EMPRESA === */
+
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Card principal */
+.modal-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 90%;
+  max-width: 620px;
+  max-height: 85vh;
+  overflow-y: auto;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative; /* ESSENCIAL: permite sticky dentro do card */
+}
+
+/* Animação de entrada */
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Scrollbar discreta */
+.modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-card::-webkit-scrollbar-thumb {
+  background: hsl(210, 30%, 70%);
+  border-radius: 3px;
+}
+.modal-card::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Header – preso no topo */
+.modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg-secondary);
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(8px);
+}
+
+/* Corpo – scroll aqui */
+.modal-body {
+  padding: 2rem;
+}
+
+/* Footer – preso no fundo */
+.modal-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  background: var(--bg-secondary);
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+/* Inputs e labels – mantidos do teu estilo */
+.modal-body label {
+  display: block;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.modal-body input,
+.modal-body textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background: var(--bg-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px var(--accent-primary-light);
+  outline: none;
+}
+
+.modal-body textarea {
+  min-height: 100px;
+  resize: vertical;
+}
